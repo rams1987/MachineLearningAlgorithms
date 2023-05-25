@@ -55,7 +55,7 @@ for epoch in range(num_epochs):
         print(data.shape)
         #reshape the data. Single vector
         data = data.reshape(data.shape[0],-1)
-        print(data.shape)
+        #print(data.shape)
 
 
         #Forward pass
@@ -68,6 +68,22 @@ for epoch in range(num_epochs):
 
         # Gradient descent
         optimizer.step()
+
+
+# Model parameters
+def model_parameters(model):
+    for param_tensor in model.state_dict():
+        print(param_tensor, "\t", model.state_dict() [param_tensor].size())
+
+model_parameters(model)
+
+
+# Save a model
+def save_model(model, path):
+    torch.save(model.state_dict(),path)
+
+model_path = '/Users/rams/Documents/Projects/MachineLearning/Models/model'
+save_model(model,model_path)
 
 # Check accuracy of the model
 
