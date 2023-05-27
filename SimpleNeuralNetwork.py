@@ -1,4 +1,4 @@
-# Code a CNN model using Pytorch
+# Code a NN model using Pytorch
 # https://www.youtube.com/watch?v=Jy4wM2X21u0&list=PLhhyoLH6IjfxeoooqP9rhU3HJIAVAJ3Vz&index=3
 
 import torch
@@ -56,7 +56,6 @@ for epoch in range(num_epochs):
         #reshape the data. Single vector
         data = data.reshape(data.shape[0],-1)
         #print(data.shape)
-
 
         #Forward pass
         scores = model(data)
