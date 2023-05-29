@@ -11,9 +11,6 @@ import numpy as np
 
 
 #Create CNN layer and Forward pass
-
-
-
 class CNN(nn.Module):
     def __init__(self):
         super().__init__()
@@ -32,6 +29,11 @@ class CNN(nn.Module):
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
         return x
+
+
+# Save a model
+def save_model(model, path):
+    torch.save(model.state_dict(),path)
 
 
 def imshow(img):
@@ -79,7 +81,7 @@ for epoch in range(2):  # loop over the dataset multiple times
 
     running_loss = 0.0
     for i, data in enumerate(trainloader, 0):
-        print('index - ', i)
+        #print('index - ', i)
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
 
@@ -101,6 +103,6 @@ for epoch in range(2):  # loop over the dataset multiple times
 print('Finished Training')
 
 
+model_path = '/Users/rams/Documents/Projects/MachineLearning/Models/CNNModel.pt'
+save_model(net,model_path)
 
-
-print("All good")
